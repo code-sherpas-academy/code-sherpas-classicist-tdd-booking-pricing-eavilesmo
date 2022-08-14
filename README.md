@@ -35,7 +35,7 @@ tarifa: 0,20€ / minuto
 tarifa con 10% de descuento: 0,20€ / minuto x 0,9 = 0,18€ / minuto
 Precio viaje: tiempo_viaje x tarifa_con_descuento = 0,54€
 
-6. Si el usuario tiene un pase, se aplica una tarifa a a los primeros x minutos del viaje y una tarifa b a partir del minuto x+1. Por ejemplo:
+6. Si el usuario tiene un pase, se aplica una tarifa a los primeros x minutos del viaje y una tarifa b a partir del minuto x+1. Por ejemplo:
 
 tiempo de viaje sin redondear: 121 segundos
 tiempo de viaje redondeado: 180 segundos
