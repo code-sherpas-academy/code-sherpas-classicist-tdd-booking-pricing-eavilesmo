@@ -19,7 +19,8 @@ public class TravelPriceCalculator {
 
         Integer travelTime = travelTimeCalculator.getTravelTime();
         Double travelRate = travelRateRepository.getTravelRate();
+        Integer travelDiscount = (travelDiscountRepository.getTravelDiscount()) / 100;
 
-        return travelTime * travelRate;
+        return (travelTime * travelRate) * (1 - travelDiscount);
     }
 }

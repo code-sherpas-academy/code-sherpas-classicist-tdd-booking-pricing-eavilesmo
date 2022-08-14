@@ -18,5 +18,14 @@ class TravelPriceCalculatorTest {
         verify(travelRateRepositoryMock).getTravelRate();
 
     }
+    @Test
+    void receive_random_travel_time_and_rate_and_return_price_with_discount_test() {
+        travelPriceCalculator.getPrice();
+        verify(travelTimeCalculatorMock).getTravelTime();
+        verify(travelRateRepositoryMock).getTravelRate();
+        verify(travelDiscountRepositoryMock).getTravelDiscount();
+
+
+    }
 
 }
