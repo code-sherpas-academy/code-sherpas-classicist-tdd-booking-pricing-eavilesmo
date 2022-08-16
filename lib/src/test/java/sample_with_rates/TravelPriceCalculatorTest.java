@@ -19,6 +19,7 @@ class TravelPriceCalculatorTest {
 
     @Test
     void receive_random_travel_time_and_rate_and_return_price_test() {
+        String travelId = "1456";
         travelPriceCalculator.getPrice(travelId);
         verify(travelTimeCalculatorMock).getTravelTime();
         verify(travelRateRepositoryMock).getTravelRate();
@@ -26,6 +27,7 @@ class TravelPriceCalculatorTest {
     }
     @Test
     void receive_random_travel_time_and_rate_and_return_price_with_discount_test() {
+        String travelId = "1456";
         travelPriceCalculator.getPrice(travelId);
         verify(travelTimeCalculatorMock).getTravelTime();
         verify(travelRateRepositoryMock).getTravelRate();
