@@ -12,15 +12,17 @@ class TravelPriceCalculatorTest {
                                                                                 travelDiscountRepositoryMock);
 
     @Test
-    void receive_random_travel_time_and_rate_and_return_price_test() {
-        travelPriceCalculator.getPrice();
+    void verify_interaction_between_travelTimeCalculatorMock_and_travelRateRepositoryMock_with_getTravelTime_and_getTravelRate() {
+        String travelId = "1398";
+        travelPriceCalculator.getPrice(travelId);
         verify(travelTimeCalculatorMock).getTravelTime();
         verify(travelRateRepositoryMock).getTravelRate();
 
     }
     @Test
-    void receive_random_travel_time_and_rate_and_return_price_with_discount_test() {
-        travelPriceCalculator.getPrice();
+    void verify_interaction_between_travelDiscountRepositoryMock_with_getTravelDiscount() {
+        String travelId = "1398";
+        travelPriceCalculator.getPrice(travelId);
         verify(travelTimeCalculatorMock).getTravelTime();
         verify(travelRateRepositoryMock).getTravelRate();
         verify(travelDiscountRepositoryMock).getTravelDiscount();

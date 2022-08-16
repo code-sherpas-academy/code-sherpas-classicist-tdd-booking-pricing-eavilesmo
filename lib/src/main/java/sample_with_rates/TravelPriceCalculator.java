@@ -1,4 +1,4 @@
-package sample;
+package sample_with_rates;
 
 public class TravelPriceCalculator {
 
@@ -15,7 +15,7 @@ public class TravelPriceCalculator {
         this.travelDiscountRepository = travelDiscountRepository;
     }
 
-    public Double getPrice(String travelId) {
+    public Double getPrice() {
 
         Integer travelTime = travelTimeCalculator.getTravelTime();
         Double travelRate = travelRateRepository.getTravelRate();
