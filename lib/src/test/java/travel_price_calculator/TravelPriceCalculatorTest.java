@@ -32,5 +32,18 @@ class TravelPriceCalculatorTest {
         assertThat(actualTravelPrice).isEqualTo(expectedTravelPrice);
     }
 
+    @Test
+    void receive_travel_time_lower_than_a_minute_and_return_travel_is_free() {
+        String travelId = "1456";
+        int travelTime = 37;
+        TravelDiscountRepository travelDiscountRepository = new TravelDiscountRepository();
+        TravelRateRepository travelRateRepository = new TravelRateRepository();
+        TravelTimeCalculator travelTimeCalculator = new TravelTimeCalculator();
+        TravelPriceCalculator travelPriceCalculator = new TravelPriceCalculator(travelTimeCalculator, travelRateRepository, travelDiscountRepository);
+        double actualTravelPrice = travelPriceCalculator.getPrice(travelId, travelTime);
+        double expectedTravelPrice = 0;
+        assertThat(actualTravelPrice).isEqualTo(expectedTravelPrice);
+    }
+
 
 }
