@@ -1,7 +1,5 @@
 package travel_price_calculator;
 
-import java.util.*;
-
 public class TravelPriceCalculator {
 
     private final TravelTimeCalculator travelTimeCalculator;
@@ -17,15 +15,21 @@ public class TravelPriceCalculator {
         this.travelDiscountRepository = travelDiscountRepository;
     }
 
-    public double getPrice(String travelId, int travelTimeInput) {
+    public double getPrice(String travelId, int travelTimeInput, boolean discount) {
 
-        Integer travelTime = travelTimeCalculator.getTravelTime(travelId, travelTimeInput);
-        Double travelRate = travelRateRepository.getTravelRate(travelId);
-//        Integer travelDiscount = (travelDiscountRepository.getTravelDiscount(travelId)) / 100;
-
-//        return (travelTime * travelRate) * (1 - travelDiscount);
-        double result = travelTime * travelRate;
-        result = (double) Math.round(result*100)/100;
-        return result;
+        int travelTime = travelTimeCalculator.getTravelTime(travelId, travelTimeInput);
+        double travelRate = travelRateRepository.getTravelRate(travelId);
+        if (discount) {
+            double travelDiscount = (travelDiscountRepository.getTravelDiscount(travelId));
+            double travelDiscountRate = (100 - travelDiscount) / 100;
+            double result = travelTime * travelRate;
+            result = (double) Math.round(result*100)/100;
+            return result * travelDiscountRate;
+        }
+         else {
+            double result = travelTime * travelRate;
+            result = (double) Math.round(result*100)/100;
+            return result;
+        }
     }
 }
