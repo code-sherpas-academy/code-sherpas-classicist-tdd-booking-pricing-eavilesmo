@@ -1,5 +1,7 @@
 package travel_price_calculator;
 
+import java.util.ArrayList;
+
 public class TravelDiscountRepository {
 
     public int getTravelTimeDiscount(String travelId) {
@@ -12,8 +14,12 @@ public class TravelDiscountRepository {
         return travelRateDiscount;
     }
 
-    public int getTicketDiscount(String travelId) {
-        int ticket = 20;
-        return ticket;
+    public ArrayList<Double> getTicketDiscount(String travelId) {
+        ArrayList<Double> ticketDiscount = new ArrayList<Double>();
+        ticketDiscount.add(0.16);
+        ticketDiscount.add(0.18);
+        return ticketDiscount;
     }
+
+
 }
